@@ -295,6 +295,10 @@
             <value n="id" v="Resource Bundle Variable Resolver"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <url n="id" protocol="file" path="/OUCSS/tools/workspace/2201/system12.2.1.2.42.161008.1648/o.jdeveloper/Google GSON.library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <hash n="internalDefinitions">
          <list n="libraryDefinitions"/>
@@ -366,6 +370,10 @@
          </hash>
          <hash>
             <value n="id" v="Resource Bundle Variable Resolver"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <url n="id" protocol="file" path="/OUCSS/tools/workspace/2201/system12.2.1.2.42.161008.1648/o.jdeveloper/Google GSON.library"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

@@ -1,13 +1,14 @@
 package com.oracle.fintech.smartgov.multichain;
 
+import com.oracle.fintech.smartgov.multichain.rpc.JsonRPC;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import com.oracle.fintech.smartgov.multichain.rpc.JsonRPC;
 
 public class MultichainQueryBuilder {
 
-    private static String CHAIN = "";
+    private static String CHAIN = "orahyperledger";
     private static boolean header = false;
     private static String MULTICHAIN_BINARY_PATH = "D:\\OfficeWork\\blockchain\\";//"C:\\Users\\devel\\Apps\\Multichain\\";
     private static String MULTICHAIN_CLI = MULTICHAIN_BINARY_PATH + "multichain-cli  ";
@@ -17,7 +18,7 @@ public class MultichainQueryBuilder {
     public enum CALLMODE {
         LOCAL, REMOTE
     };
-    private static CALLMODE CALL_MODE = CALLMODE.LOCAL;
+    private static CALLMODE CALL_MODE = CALLMODE.REMOTE;
 
     private static String formatedArray(String[] array, boolean formatWithArray) {
         String stringFormated = "";
@@ -742,6 +743,8 @@ public class MultichainQueryBuilder {
         return execute(MultichainCommand.ISSUE, address, assetParam, String.valueOf(quantity));
     }
 
+
+
     /**
      * Creates a new asset on the blockchain, sending the initial qty units to
      * address. If open is true then additional units can be issued in future by
@@ -766,6 +769,19 @@ public class MultichainQueryBuilder {
 
         return execute(MultichainCommand.ISSUE, address, assetParam, String.valueOf(quantity), String.valueOf(unit));
     }
+
+
+  public static String executeIssue(String address, String assetName, boolean open, int quantity, float unit, String details)
+          throws MultichainException {
+      MultichainTestParameter.stringIsNotNullOrEmpty("address", address);
+      MultichainTestParameter.stringIsNotNullOrEmpty("assetName", assetName);
+      MultichainTestParameter.intValueIsPositive("quantity", quantity);
+      MultichainTestParameter.floatValueIsPositive("unit", unit);
+      String assetParam = "'{" + "name:" + ":" + assetName + "," + "open" + ":" + open + "}'";
+
+
+      return execute(MultichainCommand.ISSUE, address, assetParam, String.valueOf(quantity), String.valueOf(unit), details);
+  }
 
     /**
      * This works like issue, but with control over the from-address used to

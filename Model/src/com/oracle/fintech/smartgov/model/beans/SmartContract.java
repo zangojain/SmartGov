@@ -7,21 +7,7 @@ import java.util.List;
 
 public class SmartContract implements SmartGovBaseObjInterface
 {
-/*
- Event object
- Block chain record for financial execution
-Sales Order#
-Item
-DOC ID
-Transaction type
-Smart Contract ID
-Smart Contract Execution ID
-Blockchain txn Ref
-Qty
-Txn Source
-Reporting Party
-Date
- */
+  private String smartContractId; //ref smart contract
   private String sfoAgreementId;
   private String sellingPartyName;
   private String buyingPartyName;
@@ -31,6 +17,7 @@ Date
   private String item;
   private String flowType = FlowType.DROPSHIP.toString();
   private List<TradePath> tradePaths;
+  private List<ExecutionOrder> orders;
 
   public SmartContract()
   {
@@ -125,5 +112,15 @@ Date
   public String getFlowType()
   {
     return flowType;
+  }
+
+  public void setOrders(List<ExecutionOrder> orders)
+  {
+    this.orders = orders;
+  }
+
+  public List<ExecutionOrder> getOrders()
+  {
+    return orders;
   }
 }

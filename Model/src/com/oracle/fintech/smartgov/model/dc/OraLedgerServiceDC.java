@@ -1,11 +1,11 @@
 package com.oracle.fintech.smartgov.model.dc;
 
 import com.oracle.fintech.smartgov.api.common.LedgerJSONRequest;
+import com.oracle.fintech.smartgov.model.beans.SmartContract;
 import com.oracle.fintech.smartgov.model.util.SmartGovHttpClientUtil;
 
 import java.io.IOException;
 
-import java.util.Collections;
 import java.util.List;
 
 import org.apache.http.HttpEntity;
@@ -68,7 +68,7 @@ public class OraLedgerServiceDC
           JSONObject jsonResult = new JSONObject(json);
           System.out.println(jsonResult);
           jsonResult = jsonResult.getJSONObject("result");
-          System.out.println(jsonResult.getString("id"));
+          System.out.println(jsonResult);
         }
         catch (JSONException e)
         {
@@ -96,9 +96,17 @@ public class OraLedgerServiceDC
     OraLedgerServiceDC dc = new OraLedgerServiceDC();
     try
     {
-      dc.callLedger("getinfo", Collections.emptyList());
+      //dc.callLedger("getinfo", Collections.emptyList());
+
+      //JsonObject build = Json.createObjectBuilder().build();
+      //JsonObjectBuilder build = Json.createObjectBuilder();
+
+      String result = IssueCommand.issue("Test1", 10, new SmartContract());
+      //Gson gson = new Gson();
+      //String smartContractJSon = gson.toJson(new SmartContract());
+      System.out.println(result);
     }
-    catch (IOException e)
+    catch (Exception e)
     {
       e.printStackTrace();
     }

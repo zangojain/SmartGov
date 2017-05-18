@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.16.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.oracle.fintech.smartgov.view" ClientType="Generic">
+  <pageMap>
+    <page path="/facelets/GetLedgerInfo.jsff" usageId="com_oracle_fintech_smartgov_view_GetLedgerInfoPageDef"/>
+    <page path="/facelets/GetInfo.jsf" usageId="com_oracle_fintech_smartgov_view_GetInfoPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_oracle_fintech_smartgov_view_GetLedgerInfoPageDef" path="facelets.GetLedgerInfoPageDef"/>
+    <page id="com_oracle_fintech_smartgov_view_GetInfoPageDef" path="facelets.GetInfoPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="OraLedgerService" path="com.oracle.fintech.smartgov.model.OraLedgerService"/>
+  </dataControlUsages>
+</Application>

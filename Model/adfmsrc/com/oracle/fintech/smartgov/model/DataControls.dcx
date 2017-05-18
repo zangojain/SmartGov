@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration" version="12.2.1.16.48" id="DataControls"
+                    Package="com.oracle.fintech.smartgov.model">
+  <AdapterDataControl id="OraLedgerService" FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.adf.model.adapter.rest.RestURLDCDefinition" SupportsTransactions="false"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="false"
+                      Definition="com.oracle.fintech.smartgov.model.OraLedgerService"
+                      BeanClass="com.oracle.fintech.smartgov.model.OraLedgerService"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <Definitions>
+        <Definition xmlns="http://xmlns.oracle.com/adfm/adapter/rest/json" ConnectionName="slc02ptp_node" Source="/"
+                    HttpMethod="POST" id="post" MethodRef="JSON" SchemaLocation="Response.json"
+                    InputSchemaLocation="Payload.json" ensureKeyAttribute="true" dcStructureVersion="2"
+                    RootElement="methodReturn"/>
+      </Definitions>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>

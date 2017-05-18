@@ -1,0 +1,22 @@
+{
+  "result" :
+  {
+    "type" : "array",
+    "items" :
+    {
+      "type" : "string"
+    }
+  },
+  "error" :
+  {
+    "type" : "array",
+    "items" :
+    {
+      "type" : "string"
+    }
+  },
+  "id" :
+  {
+    "type" : "string"
+  }
+}

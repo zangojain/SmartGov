@@ -1,0 +1,22 @@
+{
+  "jsonrpc" :
+  {
+    "type" : "string"
+  },
+  "id" :
+  {
+    "type" : "object"
+  },
+  "method" :
+  {
+    "type" : "string"
+  },
+  "params" :
+  {
+    "type" : "array",
+    "items" :
+    {
+      "type" : "string"
+    }
+  }
+}

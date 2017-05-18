@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/templates/responsiveTemplate.jspx" id="pt1">
+    <f:facet name="header"/>
+    <f:facet name="status"/>
+    <f:facet name="appNav"/>
+    <f:facet name="globalLinks"/>
+    <f:facet name="footer"/>
+    <f:facet name="center">
+      <af:inputText value="#{bindings.post_param.inputValue}" label="Request Paylaod"
+                    required="#{bindings.post_param.hints.mandatory}"
+                    columns="#{bindings.post_param.hints.displayWidth}"
+                    maximumLength="#{bindings.post_param.hints.precision}"
+                    shortDesc="#{bindings.post_param.hints.tooltip}" id="it1"></af:inputText>
+      <af:button actionListener="#{bindings.post.execute}" text="Invoke" disabled="#{!bindings.post.enabled}" id="b1"/>
+      <af:panelLabelAndMessage label="Response from Ledger" id="plam1" partialTriggers="b1">
+        <af:outputText value="#{bindings.methodReturn.inputValue}" shortDesc="#{bindings.methodReturn.hints.tooltip}"
+                       id="ot1"/>
+      </af:panelLabelAndMessage>
+    </f:facet>
+    <f:facet name="start"/>
+    <f:facet name="end"/>
+  </af:pageTemplate>
+</ui:composition>

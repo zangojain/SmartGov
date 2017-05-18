@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48" id="GetLedgerInfoPageDef"
+                Package="facelets">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.Object" Name="post_methodReturn" IsQueriable="false" IsUpdateable="0"
+                DefaultValue="${bindings.post.result}"/>
+    </variableIterator>
+    <iterator Binds="post_parameters" RangeSize="25" DataControl="OraLedgerService" id="post_parametersIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="post_parametersIterator" id="post_param">
+      <AttrNames>
+        <Item Value="post_param"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="post" RequiresUpdateModel="true" Action="invokeMethod" MethodName="post"
+                  IsViewObjectMethod="false" DataControl="OraLedgerService" InstanceName="bindings.post.dataControl"
+                  ReturnName="data.OraLedgerService.methodResults.post_post_dataControl_post_result">
+      <NamedData NDName="post_param" NDValue="#{bindings.post_param.inputValue}" NDType="java.lang.Object"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="methodReturn">
+      <AttrNames>
+        <Item Value="post_methodReturn"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
